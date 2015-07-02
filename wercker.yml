@@ -6,15 +6,9 @@ build:
 deploy:
   steps:
     - script:
-      name: installation
-      code: |
-        sudo apt-get update
-        sudo apt-get install -y curl zip unzip
-    - script:
       name: preparation
       code: |
-        curl https://codeload.github.com/nulltask/heroku-static-provider/zip/master -o heroku-static-provider-master.zip
-        unzip -o heroku-static-provider-master.zip
+        git clone https://github.com/nulltask/heroku-static-provider.git
         cp -r public/* heroku-static-provider-master/public/
     - heroku-deploy:
         source_dir: heroku-static-provider-master/
