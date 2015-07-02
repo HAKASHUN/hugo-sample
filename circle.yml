@@ -1,6 +1,10 @@
 machine:
   timezone: Asia/Tokyo
 
+checkout:
+  post:
+    - git clone https://github.com/nulltask/heroku-static-provider heroku-static-provider
+
 dependencies:
   pre:
     - go get -v github.com/spf13/hugo
@@ -9,10 +13,8 @@ deployment:
   production:
     branch: master
     commands:
-      - git clone https://github.com/nulltask/heroku-static-provider heroku-static-provider
       - hugo version
       - hugo
+      - cp -r public/* heroku-static-provider/public/
       - ls public
-
-#      - cp -r public/* heroku-static-provider-master/public/
 
