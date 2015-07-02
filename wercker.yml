@@ -17,6 +17,7 @@ deploy:
         unzip -o heroku-static-provider-master.zip
         cp -r public/* heroku-static-provider-master/public/
     - heroku-deploy:
+        source_dir: heroku-static-provider-master/
         key: $HEROKU_KEY
         key-name: $HEROKU_KEY_PAIR
         user: $HEROKU_USER
