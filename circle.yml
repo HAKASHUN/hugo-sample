@@ -16,5 +16,5 @@ deployment:
       - hugo version
       - hugo
       - cp -r public/* heroku-static-provider/public/
-      - ls public
+      - ls
 
