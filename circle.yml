@@ -12,9 +12,11 @@ dependencies:
 deployment:
   production:
     branch: master
-    commands:
-      - hugo version
-      - hugo
-      - cp -r public/* heroku-static-provider/public/
-      - ls heroku-static-provider
-      - git push git@heroku.com:lower-poppy-5174.git master
+    heroku:
+      appname: lower-poppy-5174
+#    commands:
+#      - hugo version
+#      - hugo
+#      - cp -r public/* heroku-static-provider/public/
+#      - ls heroku-static-provider
+#      - git push git@heroku.com:lower-poppy-5174.git master
