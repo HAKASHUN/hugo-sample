@@ -10,3 +10,7 @@ deploy:
         key-name: $HEROKU_KEY_PAIR
         user: $HEROKU_USER
         app-name: $HEROKU_APP_NAME
+        install-toolbelt: true
+    - script:
+        name: set node buildpacks
+        code: heroku buildpacks:set https://github.com/heroku/heroku-buildpack-node --app $HEROKU_APP_NAME
