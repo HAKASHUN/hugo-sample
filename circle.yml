@@ -9,5 +9,6 @@ deployment:
   production:
     branch: master
     commands:
+      - hugo version
       - hugo
 
