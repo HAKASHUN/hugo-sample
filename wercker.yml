@@ -12,10 +12,10 @@ deploy:
         sudo apt-get install -y curl zip unzip
     - script:
       name: preparation
-        code: |
-          curl https://codeload.github.com/nulltask/heroku-static-provider/zip/master -o heroku-static-provider-master.zip
-          unzip -o heroku-static-provider-master.zip
-          cp -r public/* heroku-static-provider-master/public/
+      code: |
+        curl https://codeload.github.com/nulltask/heroku-static-provider/zip/master -o heroku-static-provider-master.zip
+        unzip -o heroku-static-provider-master.zip
+        cp -r public/* heroku-static-provider-master/public/
     - heroku-deploy:
         key: $HEROKU_KEY
         key-name: $HEROKU_KEY_PAIR
