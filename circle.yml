@@ -12,6 +12,7 @@ deployment:
       - git clone https://github.com/nulltask/heroku-static-provider heroku-static-provider
       - hugo version
       - hugo
-      - cp -r public/* heroku-static-provider-master/public/
       - ls public
+
+#      - cp -r public/* heroku-static-provider-master/public/
 
