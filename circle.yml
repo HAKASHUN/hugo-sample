@@ -17,4 +17,4 @@ deployment:
       - hugo
       - cp -r public/* heroku-static-provider/public/
       - ls heroku-static-provider
-      - git subtree push --prefix heroku-static-provider git@heroku.com:lower-poppy-5174.git master
+      - git subtree push --force --prefix heroku-static-provider git@heroku.com:lower-poppy-5174.git master
