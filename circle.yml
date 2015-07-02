@@ -16,5 +16,6 @@ deployment:
       - hugo version
       - hugo
       - cp -r public/* heroku-static-provider/public/
-      - ls
-
+      - ls heroku-static-provider
+    heroku:
+      appname: lower-poppy-5174
