@@ -22,5 +22,6 @@ deployment:
       - hugo version
       - hugo
       - cp -r public/* dist/public/
-      - cd dist
       - ls dist
+      - git add dist
+      - git subtree push --prefix dist heroku master
