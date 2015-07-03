@@ -3,7 +3,7 @@ machine:
 
 checkout:
   post:
-    - git clone https://github.com/nulltask/heroku-static-provider heroku-static-provider
+    - git clone https://github.com/nulltask/heroku-static-provider build
 
 dependencies:
   pre:
@@ -15,8 +15,7 @@ deployment:
     commands:
       - hugo version
       - hugo
-      - cp -r public/* heroku-static-provider/public/
-      - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
-      - heroku maintenance:on --app lower-poppy-5174
-      - git subtree push --prefix heroku-static-provider git@heroku.com:lower-poppy-5174.git $CIRCLE_SHA1:refs/heads/master
-      - heroku maintenance:off --app lower-poppy-5174
+      - cp -r public/* build/public/
+      - git add -f build/
+      - git commit -m "Deploying to Heroku"
+      - git push git@heroku.com:lower-poppy-5174.git -f $CIRCLE_SHA1:refs/heads/master
