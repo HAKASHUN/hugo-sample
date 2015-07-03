@@ -23,4 +23,6 @@ deployment:
       - hugo
       - cp -r public/* dist/public/
       - git status
+      - git subtree push --prefix dist git@heroku.com:hugo-sample.git master
+      # distフォルダ以下をherokuにdeployする
 
