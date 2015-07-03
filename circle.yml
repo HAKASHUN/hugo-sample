@@ -23,7 +23,8 @@ deployment:
       - hugo
       - cp -r public/* dist/public/
       - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
-      - git subtree push --prefix dist git@heroku.com:hugo-sample.git master
-      - git push git@heroku.com:hugo-sample.git `git subtree split --prefix dist master`:refs/heads/master --force
+      - git checkout -b deploy
+      - git subtree push --prefix dist git@heroku.com:hugo-sample.git deploy
+      - git push git@heroku.com:hugo-sample.git deploy:refs/heads/master --force
       # distフォルダ以下をherokuにdeployする
 
