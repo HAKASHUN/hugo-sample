@@ -9,7 +9,7 @@ machine:
 
 checkout:
   post:
-    - git clone https://github.com/nulltask/heroku-static-provider build
+    - git clone https://github.com/nulltask/heroku-static-provider dist
 
 dependencies:
   pre:
@@ -21,10 +21,6 @@ deployment:
     commands:
       - hugo version
       - hugo
-      - cp -r public/* build/public/
-      - cd build
-      - git config --global user.name ${HEROKU_USER}
-      - git config --global user.email ${HEROKU_USER_EMAIL}
-      - git add -A * -f
-      - git commit -am "Deploy"
-      - git push git@heroku.com:lower-poppy-5174.git -f $CIRCLE_SHA1:refs/heads/master
+      - cp -r public/* dist/public/
+      - cd dist
+      - ls dist
