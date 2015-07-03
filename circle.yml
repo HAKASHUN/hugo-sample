@@ -1,3 +1,9 @@
+#
+#  Circle CI > Heroku
+#  deploy /build folder
+#
+#
+
 machine:
   timezone: Asia/Tokyo
 
@@ -16,6 +22,9 @@ deployment:
       - hugo version
       - hugo
       - cp -r public/* build/public/
-      - git add -f build/
-      - git commit -m "Deploying to Heroku"
+      - cd build
+      - git config --global user.name ${HEROKU_USER}
+      - git config --global user.email ${HEROKU_USER_EMAIL}
+      - git add -A *
+      - git commit -am "Deploy"
       - git push git@heroku.com:lower-poppy-5174.git -f $CIRCLE_SHA1:refs/heads/master
