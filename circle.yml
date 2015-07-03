@@ -16,7 +16,6 @@ deployment:
       - hugo version
       - hugo
       - cp -r public/* heroku-static-provider/public/
-      - cd heroku-static-provider
       - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
       - heroku maintenance:on --app lower-poppy-5174
       - git subtree push --prefix heroku-static-provider git@heroku.com:lower-poppy-5174.git $CIRCLE_SHA1:refs/heads/master
