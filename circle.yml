@@ -18,7 +18,6 @@ deployment:
       - cp -r public/* heroku-static-provider/public/
       - ls heroku-static-provider
       - heroku maintenance:on --app lower-poppy-5174
-      - heroku scale worker=0 --app lower-poppy-5174
       - git push git@heroku.com:lower-poppy-5174.git $CIRCLE_SHA1:refs/heads/master
       - heroku scale worker=x --app lower-poppy-5174
       - heroku maintenance:off --app lower-poppy-5174
